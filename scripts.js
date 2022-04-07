@@ -26,9 +26,9 @@ let desenho =[ "bobrossparrot", "explodyparrot", "fiestaparrot",
 
 // Construir carta
 function construirCarta(){
-    for (let i=0; i==numerocartas; i++){
+    for (let i=0; i<numerocartas; i++){
         novacarta = document.createElement("div");
-        novacarta.classlist.add("carta");
+        novacarta.classList.add("carta");
         novacarta.innerHTML += ` <div class="frente-carta">
         <img src="Imagens/front.png"/>
       </div>
@@ -45,7 +45,7 @@ function construirCarta(){
 function colocarCartas(){
     const container = document.querySelector(".container");
     for(let i=0; i==numerocartas; i++){
-        container.innerHTML+=`baralho[i]`;
+        container.innerHTML+=`${baralho[i]}`;
     }
 }
 colocarCartas();
