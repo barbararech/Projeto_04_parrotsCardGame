@@ -12,40 +12,52 @@ function numeroCartas(){
 numeroCartas();
 
 
-let baralho = [];
-// Embaralhar cartas
-baralho.sort(comparador);
+// let desenho =[ "bobrossparrot", "explodyparrot", "fiestaparrot", 
+// "metalparrot", "revertitparrot", "tripletsparrot", 
+// "unicornparrot"];
 
-function comparador(){
-    return Math.random() -0.5;
-}
 
-let desenho =[ "bobrossparrot", "explodyparrot", "fiestaparrot", 
-"metalparrot", "revertitparrot", "tripletsparrot", 
-"unicornparrot"];
+img1 = `<img src="Imagens/bobrossparrot.gif">`
+img2 = `<img src="Imagens/explodyparrot.gif">`
+img3 = `<img src="Imagens/fiestaparrot.gif">`
+img4 = `<img src="Imagens/metalparrot.gif">`
+img5 = `<img src="Imagens/revertitparrot.gif">`
+img6 = `<img src="Imagens/tripletsparrot.gif">`
+img7 = `<img src="Imagens/unicornparrot.gif">`
 
-// Construir carta
+let desenhopar = [img1,img1,img2,img2,img3,img3,img4,img4,img5,img5,img6,img6,img7,img7];
+let baralho =[];
+
+// Construir carta e distribuir
 function construirCarta(){
     for (let i=0; i<numerocartas; i++){
         novacarta = document.createElement("div");
         novacarta.classList.add("carta");
-        novacarta.innerHTML += ` <div class="frente-carta">
+        novacarta.setAttribute("onclick","virarcarta(this)");
+        novacarta.innerHTML += ` <div class="frente-carta" >
         <img src="Imagens/front.png"/>
       </div>
       <div class="verso-carta">
-        <img src="Imagens/${desenho[i]}.gif"/>
+        ${desenhopar[i]}
       </div>`;
       document.querySelector(".container").appendChild(novacarta);
+      baralho[i]=novacarta;
     }
+
  }
  construirCarta();
 
+// Embaralhar cartas
+baralho.sort(comparador);
+console.log(baralho);
 
-// Inserir carta
-function colocarCartas(){
-    const container = document.querySelector(".container");
-    for(let i=0; i==numerocartas; i++){
-        container.innerHTML+=`${baralho[i]}`;
-    }
+function comparador(){
+    return Math.random() -0.5;
 }
-colocarCartas();
+ 
+// Virar carta
+ function virarcarta(){
+      document.querySelector(".frente-carta").classList.add("virar-frente");
+ }
+ 
+
