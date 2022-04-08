@@ -28,6 +28,18 @@ img7 = `<img src="Imagens/unicornparrot.gif">`
 let desenhopar = [img1,img1,img2,img2,img3,img3,img4,img4,img5,img5,img6,img6,img7,img7];
 let baralho =[];
 
+for(let i=0; i<numerocartas;i++){
+    baralho[i]=desenhopar[i];
+}
+
+// Embaralhar cartas
+baralho.sort(comparador);
+console.log(baralho);
+
+function comparador(){
+    return Math.random() -0.5;
+}
+
 // Construir carta e distribuir
 function construirCarta(){
     for (let i=0; i<numerocartas; i++){
@@ -38,7 +50,7 @@ function construirCarta(){
         <img src="Imagens/front.png"/>
       </div>
       <div class="verso-carta">
-        ${desenhopar[i]}
+        ${baralho[i]}
       </div>`;
       document.querySelector(".container").appendChild(novacarta);
       baralho[i]=novacarta;
@@ -47,13 +59,7 @@ function construirCarta(){
  }
  construirCarta();
 
-// Embaralhar cartas
-baralho.sort(comparador);
-console.log(baralho);
 
-function comparador(){
-    return Math.random() -0.5;
-}
  
 // Virar carta
  function virarcarta(){
