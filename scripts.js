@@ -1,4 +1,5 @@
 let numerocartas=0;
+
 function numeroCartas(){
       
     while(numerocartas % 2 != 0 || numerocartas <4 || numerocartas>14){
@@ -10,12 +11,6 @@ function numeroCartas(){
     }
 }
 numeroCartas();
-
-
-// let desenho =[ "bobrossparrot", "explodyparrot", "fiestaparrot", 
-// "metalparrot", "revertitparrot", "tripletsparrot", 
-// "unicornparrot"];
-
 
 img1 = `<img src="Imagens/bobrossparrot.gif">`
 img2 = `<img src="Imagens/explodyparrot.gif">`
@@ -29,7 +24,7 @@ let desenhopar = [img1,img1,img2,img2,img3,img3,img4,img4,img5,img5,img6,img6,im
 let baralho =[];
 
 for(let i=0; i<numerocartas;i++){
-    baralho[i]=desenhopar[i];
+    baralho.push(desenhopar[i]);
 }
 
 // Embaralhar cartas
@@ -46,24 +41,23 @@ function construirCarta(){
         novacarta = document.createElement("div");
         novacarta.classList.add("carta");
         novacarta.setAttribute("onclick","virarcarta(this)");
-        novacarta.innerHTML += ` <div class="frente-carta" >
+        novacarta.innerHTML += ` <div class="face frente-carta" >
         <img src="Imagens/front.png"/>
       </div>
-      <div class="verso-carta">
+      <div class="face verso-carta">
         ${baralho[i]}
       </div>`;
       document.querySelector(".container").appendChild(novacarta);
-      baralho[i]=novacarta;
     }
-
  }
  construirCarta();
 
 
  
 // Virar carta
- function virarcarta(){
-      document.querySelector(".frente-carta").classList.add("virar-frente");
- }
+ function virarcarta(elemento){      
+      elemento.classList.add("virar");
  
+    
+ }
 
