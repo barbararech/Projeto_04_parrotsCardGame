@@ -1,10 +1,10 @@
 let numerocartas=0;
 
 function numeroCartas(){
-      
+
     while(numerocartas % 2 != 0 || numerocartas <4 || numerocartas>14){
         numerocartas = Number(prompt("Com quantas cartas você quer jogar? (4 a 14)"));
-      
+
         if(numerocartas % 2 != 0 || numerocartas <4 || numerocartas>14){
             alert("Valor inválido");
         }
@@ -53,24 +53,44 @@ function construirCarta(){
  construirCarta();
 
 
- 
+
 // Virar carta
 let qtdJogadas = 0;
 let compararcarta = [];
 
- function virarcarta(elemento){  
-    elemento.classList.add("virar"); 
+ function virarcarta(elemento){
+    elemento.classList.add("virar");
 
-     if(compararcarta.length<2){   
-        compararcarta.push(elemento.querySelector(".imgverso").src);
-        console.log(compararcarta);
-      }
-      if(compararcarta[0]==compararcarta[1]){
-        
-    } else{
-        // elemento.classList.remove("virar");
+     if(compararcarta.length<2){
+        compararcarta.push(elemento.querySelector(".imgverso"));
+        qtdJogadas++;
+    
+      if(compararcarta.length==2){
+        if(compararcarta[0].src == compararcarta[1].src){
+            compararcarta[0].classList.add("finalizado");
+            compararcarta[1].classList.add("finalizado");
+           
+        }
+        else{
+            setTimeout(desvirarcartas,1000);
+        }
+     }
+    } 
+
+    setTimeout(finaljogo,500);
+    console.log(qtdJogadas);
+    console.log(compararcarta);
     }
-qtdJogadas++;
-console.log(qtdJogadas);
- }
 
+ function desvirarcartas(){
+    compararcarta[0].classList.remove("virar");
+    compararcarta[1].classList.remove("virar");
+  }
+
+function finaljogo(){
+    let cartasviradas = document.querySelectorAll(".finalizado").length;
+    if(numerocartas == cartasviradas){
+        alert("Você finalizou o jogo em ${qtdJogadas}");
+   }
+   console.log(cartasviradas);
+}
