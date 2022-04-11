@@ -1,3 +1,4 @@
+/* Corpo */
 *{
     box-sizing: border-box;
 }
@@ -27,6 +28,7 @@ h1{
     align-items: center;
 }
 
+/* Definição das cartas */
 .carta{
     width: 117px;
     height: 146px;

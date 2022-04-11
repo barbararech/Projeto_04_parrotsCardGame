@@ -1,3 +1,4 @@
+// Número de Cartas para jogar
 let numerocartas=0;
 
 function numeroCartas(){
@@ -12,6 +13,7 @@ function numeroCartas(){
 }
 numeroCartas();
 
+// Embaralhar cartas
 img1 = `<img class="imgverso" src="Imagens/bobrossparrot.gif">`
 img2 = `<img class="imgverso" src="Imagens/explodyparrot.gif">`
 img3 = `<img class="imgverso" src="Imagens/fiestaparrot.gif">`
@@ -27,7 +29,6 @@ for(let i=0; i<numerocartas;i++){
     baralho.push(desenhopar[i]);
 }
 
-// Embaralhar cartas
 baralho.sort(comparador);
 console.log(baralho);
 
@@ -51,8 +52,6 @@ function construirCarta(){
     }
  }
  construirCarta();
-
-
 
 // Virar carta
 let qtdJogadas = 0;
@@ -83,24 +82,35 @@ let compararcarta = [];
   
     }
 
+// Desvirar pares errados
  function desvirarcartas(){
      let desvirarcarta = document.querySelectorAll(".virar");
      desvirarcarta.forEach(carta=>{carta.classList.remove("virar")});
      compararcarta=[];
   }
 
+//   Manter pares certos 
   function parcerto(){
      let par = document.querySelectorAll(".finalizado");
      par.forEach(carta=>{carta.parentNode.classList.add("normal")});
      compararcarta=[];
   }
   
-
+// Aviso final de jogo
 function finaljogo(){
     let cartasviradas = document.querySelectorAll(".finalizado").length;
     if(numerocartas == cartasviradas){
         alert(`Parabéns! Você finalizou o jogo em ${qtdJogadas} jogadas!`);
+        reiniciar();
    }
    compararcarta=[];
    console.log(cartasviradas);
+  
+}
+
+function reiniciar(){
+    const resposta = prompt("Deseja reiniciar a partida?");
+    if(resposta == `sim`){
+        window.location.reload(true);
+    }
 }
