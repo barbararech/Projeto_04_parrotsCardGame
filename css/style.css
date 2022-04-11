@@ -64,6 +64,7 @@ h1{
     backface-visibility: hidden; 
 }
 
+/* Efeito virar carta */
 .frente-carta{
     transform: rotateY(0deg);
 }
@@ -80,6 +81,7 @@ h1{
     transform: rotateY(0deg)
 }
 
+/* Responsividade */
 @media (max-width:600px){
     h1{
         font-size: 36px ;

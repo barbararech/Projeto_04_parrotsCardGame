@@ -63,34 +63,35 @@ let compararcarta = [];
 
      if(compararcarta.length<2){
         compararcarta.push(elemento.querySelector(".imgverso"));
-        qtdJogadas++;
+        
     
       if(compararcarta.length==2){
         if(compararcarta[0].src == compararcarta[1].src){
             compararcarta[0].classList.add("finalizado");
             compararcarta[1].classList.add("finalizado");
-           
+            setTimeout(finaljogo,500);
         }
         else{
             setTimeout(desvirarcartas,1000);
         }
      }
     } 
-
-    setTimeout(finaljogo,500);
+    qtdJogadas++;
     console.log(qtdJogadas);
     console.log(compararcarta);
     }
 
  function desvirarcartas(){
-    compararcarta[0].classList.remove("virar");
-    compararcarta[1].classList.remove("virar");
+     let desvirarcarta = document.querySelectorAll(".virar");
+     desvirarcarta.forEach(carta=>{carta.classList.remove("virar")});
+     compararcarta=[];
   }
 
 function finaljogo(){
     let cartasviradas = document.querySelectorAll(".finalizado").length;
     if(numerocartas == cartasviradas){
-        alert("Você finalizou o jogo em ${qtdJogadas}");
+        alert(`Parabéns! Você finalizou o jogo em ${qtdJogadas} jogadas!`);
    }
+   compararcarta=[];
    console.log(cartasviradas);
 }
