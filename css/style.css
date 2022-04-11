@@ -74,11 +74,15 @@ h1{
 }
 
 .virar .frente-carta{
-    transform: rotateY(-180deg)
+    transform: rotateY(-180deg);
 }
 
 .virar .verso-carta{
-    transform: rotateY(0deg)
+    transform: rotateY(0deg);
+}
+
+.normal{
+    transform: rotateY(0deg);
 }
 
 /* Responsividade */

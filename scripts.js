@@ -70,6 +70,7 @@ let compararcarta = [];
             compararcarta[0].classList.add("finalizado");
             compararcarta[1].classList.add("finalizado");
             setTimeout(finaljogo,500);
+            parcerto();
         }
         else{
             setTimeout(desvirarcartas,1000);
@@ -79,6 +80,7 @@ let compararcarta = [];
     qtdJogadas++;
     console.log(qtdJogadas);
     console.log(compararcarta);
+  
     }
 
  function desvirarcartas(){
@@ -86,6 +88,13 @@ let compararcarta = [];
      desvirarcarta.forEach(carta=>{carta.classList.remove("virar")});
      compararcarta=[];
   }
+
+  function parcerto(){
+     let par = document.querySelectorAll(".finalizado");
+     par.forEach(carta=>{carta.parentNode.classList.add("normal")});
+     compararcarta=[];
+  }
+  
 
 function finaljogo(){
     let cartasviradas = document.querySelectorAll(".finalizado").length;
