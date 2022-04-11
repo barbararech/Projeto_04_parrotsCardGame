@@ -64,22 +64,21 @@ h1{
     backface-visibility: hidden; 
 }
 
-.verso-carta{
-    transform: rotateY(180deg);    
-}
-
 .frente-carta{
     transform: rotateY(0deg);
 }
 
-.virar .verso-carta{
-    transform: rotateY(0deg)
+.verso-carta{
+    transform: rotateY(180deg);    
 }
 
 .virar .frente-carta{
     transform: rotateY(-180deg)
 }
 
+.virar .verso-carta{
+    transform: rotateY(0deg)
+}
 
 @media (max-width:600px){
     h1{

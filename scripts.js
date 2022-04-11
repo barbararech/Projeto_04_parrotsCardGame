@@ -12,13 +12,13 @@ function numeroCartas(){
 }
 numeroCartas();
 
-img1 = `<img src="Imagens/bobrossparrot.gif">`
-img2 = `<img src="Imagens/explodyparrot.gif">`
-img3 = `<img src="Imagens/fiestaparrot.gif">`
-img4 = `<img src="Imagens/metalparrot.gif">`
-img5 = `<img src="Imagens/revertitparrot.gif">`
-img6 = `<img src="Imagens/tripletsparrot.gif">`
-img7 = `<img src="Imagens/unicornparrot.gif">`
+img1 = `<img class="imgverso" src="Imagens/bobrossparrot.gif">`
+img2 = `<img class="imgverso" src="Imagens/explodyparrot.gif">`
+img3 = `<img class="imgverso" src="Imagens/fiestaparrot.gif">`
+img4 = `<img class="imgverso" src="Imagens/metalparrot.gif">`
+img5 = `<img class="imgverso" src="Imagens/revertitparrot.gif">`
+img6 = `<img class="imgverso" src="Imagens/tripletsparrot.gif">`
+img7 = `<img class="imgverso" src="Imagens/unicornparrot.gif">`
 
 let desenhopar = [img1,img1,img2,img2,img3,img3,img4,img4,img5,img5,img6,img6,img7,img7];
 let baralho =[];
@@ -55,9 +55,22 @@ function construirCarta(){
 
  
 // Virar carta
- function virarcarta(elemento){      
-      elemento.classList.add("virar");
- 
-    
+let qtdJogadas = 0;
+let compararcarta = [];
+
+ function virarcarta(elemento){  
+    elemento.classList.add("virar"); 
+
+     if(compararcarta.length<2){   
+        compararcarta.push(elemento.querySelector(".imgverso").src);
+        console.log(compararcarta);
+      }
+      if(compararcarta[0]==compararcarta[1]){
+        
+    } else{
+        // elemento.classList.remove("virar");
+    }
+qtdJogadas++;
+console.log(qtdJogadas);
  }
 
